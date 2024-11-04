@@ -2,7 +2,7 @@
 const projects = [
     {
         title: 'Worldle',
-        image: '/img/Wordle.png', // Ensure this path is correct
+        image: '/img/Wordle.png',
         languages: 'HTML, CSS, JavaScript',
         description: 'Description of project 1.',
     },
@@ -40,6 +40,8 @@ const projects = [
 
 let currentIndex = 0;
 const cardsToShow = 3;
+let autoScrollInterval; // Variable to hold the interval ID
+let autoScrollTimeout; // Variable to hold the timeout ID
 
 // Function to update the carousel with three projects
 function updateCarousel() {
@@ -101,9 +103,36 @@ function prevProjects() {
     updateCarousel();
 }
 
+// Function to start auto-scrolling
+function startAutoScroll() {
+    autoScrollInterval = setInterval(nextProjects, 5000); // Automatically move to the next set every 5 seconds
+}
+
+// Function to stop auto-scrolling for 5 seconds
+function stopAutoScroll() {
+    clearInterval(autoScrollInterval); // Stop auto-scrolling
+    clearTimeout(autoScrollTimeout); // Clear any existing timeout
+
+    // Set a timeout to restart auto-scrolling after 5 seconds
+    autoScrollTimeout = setTimeout(() => {
+        startAutoScroll(); // Restart auto-scrolling
+    }, 5000); // 5 seconds delay
+}
+
 // Initialize carousel
 updateCarousel();
-setInterval(nextProjects, 5000); // Automatically move to the next set every 5 seconds
+startAutoScroll(); // Start auto-scrolling
+
+// Event listeners for navigation buttons
+document.getElementById('next-button').onclick = function() {
+    stopAutoScroll(); // Stop auto-scrolling when the button is pressed
+    nextProjects();
+};
+
+document.getElementById('prev-button').onclick = function() {
+    stopAutoScroll(); // Stop auto-scrolling when the button is pressed
+    prevProjects();
+};
 
 // Close the modal when clicking anywhere outside the modal
 window.onclick = function(event) {
