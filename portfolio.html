@@ -45,7 +45,7 @@
 
 <!-- Projects Section -->
 <section id="projects">
-    <h2>Projects</h2>
+    <h1 style="font-size: 2em;">Projects</h1>
     <div class="card-container">
         <button id="prev-button" class="nav-button" onclick="prevProjects()">
             <i class="fas fa-chevron-left"></i>
@@ -60,7 +60,6 @@
         </button>
     </div>
 
-    <!-- Modal for Project Details -->
     <div id="project-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -72,16 +71,16 @@
                 <p id="modal-languages"></p>
                 <p id="modal-description"></p>
                 <div class="modal-buttons">
-                    <button id="github-button">GitHub</button>
-                    <button id="docs-button">Docs</button>
+                    <!-- Buttons will be dynamically inserted here -->
                 </div>
+                
             </div>
             <div class="modal-navigation">
                 <button onclick="prevImage()">Previous Image</button>
                 <button onclick="nextImage()">Next Image</button>
             </div>
         </div>
-    </div>
+    </div>    
 </section>
 
 <!-- Skills Section -->

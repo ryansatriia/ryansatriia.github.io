@@ -70,8 +70,8 @@ section {
 
 .project-card {
     position: relative; /* Allow absolute positioning of child elements */
-    width: 300px; /* Set a fixed width */
-    height: 300px; /* Set a fixed height to accommodate title and languages */
+    width: 400px; /* Set a fixed width */
+    height: 400px; /* Set a fixed height to accommodate title and languages */
     overflow: hidden; /* Hide overflow */
     margin: 10px; /* Add some spacing between cards */
     border: 1px solid #ccc; /* Optional: border for aesthetics */
@@ -81,11 +81,12 @@ section {
 
 .project-card img {
     width: 100%; /* Make the image take full width */
-    height: 200px; /* Set a fixed height for images */
+    height: auto; /* Set a fixed height for images */
+    max-height: 300px;
     object-fit: contain; /* Scale the image to fit without cropping */
 }
 
-.project-card h3, #modal-title {
+.project-card h3, #title {
     position: absolute; /* Position at the bottom */
     bottom: 40px; /* Distance from the bottom */
     left: 10px; /* Distance from the left */
@@ -93,7 +94,7 @@ section {
     color: #333; /* Text color */
 }
 
-.project-card p, #modal-languages {
+.project-card p, #languages {
     font-size: 0.9em; /* Adjust font size */
     position: absolute; /* Position at the bottom */
     bottom: 20px; /* Distance from the bottom */
@@ -106,68 +107,32 @@ section {
     transform: scale(1.05); /* Scale up on hover */
 }
 
-/* Modal Styles */
+/* Modal background */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
+    z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+/* Modal content */
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto; /* 15% from the top and centered */
+    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 600px; /* Max width for large screens */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    max-width: 800px; /* Prevent it from being too wide */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow */
 }
 
-/* Carousel Styles */
-.mdl-carousel {
-    display: flex; /* Use flexbox for layout */
-    overflow: hidden; /* Hide overflow for carousel */
-    justify-content: center; /* Center the images */
-    position: relative; /* Position for absolute children */
-    width: 100%; /* Full width */
-}
-
-.modal-image {
-    width: 100%; /* Full width for images */
-    height: auto; /* Auto height to maintain aspect ratio */
-    object-fit: cover; /* Cover to ensure uniformity */
-    transition: transform 0.5s ease; /* Smooth transition */
-}
-
-/* Modal Buttons */
-.modal-buttons {
-    display: flex;
-    justify-content: space-around; /* Space buttons evenly */
-    margin-top: 20px; /* Space above buttons */
-}
-
-.modal-buttons button {
-    padding: 10px 20px; /* Button padding */
-    background-color: #007BFF; /* Button background color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s; /* Transition for hover effect */
-}
-
-.modal-buttons button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
+/* Close button */
 .close {
     color: #aaa;
     float: right;
@@ -181,6 +146,58 @@ section {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Image styling */
+.modal-image {
+    width: auto; /* Let width adjust automatically */
+    height: 300px; /* Fixed height for uniformity */
+    max-width: 100%; /* Prevent overflow */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Title styling */
+#modal-title {
+    font-size: 24px; /* Title size */
+    margin: 10px 0; /* Margin around title */
+    text-align: center; /* Center align */
+}
+
+/* Language and description styling */
+#modal-languages,
+#modal-description {
+    font-size: 16px; /* Standardize font size */
+    margin: 5px 0; /* Space around paragraphs */
+    text-align: center; /* Center text */
+}
+
+/* Button styling */
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0; /* Margin for spacing */
+}
+
+.modal-buttons button {
+    margin: 0 10px; /* Spacing between buttons */
+    padding: 10px 15px; /* Padding inside buttons */
+    cursor: pointer; /* Pointer on hover */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Rounded buttons */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+}
+
+.modal-buttons button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Modal navigation buttons */
+.modal-navigation {
+    display: flex;
+    justify-content: space-between; /* Space out buttons */
+    margin-top: 10px; /* Spacing above */
+}
+
 
 .card-container {
     display: flex; /* Use flexbox to align items */
@@ -223,7 +240,6 @@ section {
     align-items: center;
     justify-content: center; /* Center the icon */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
-    z-index: 10; /* Ensure buttons are on top */
 }
 
 #prev-button {
@@ -249,7 +265,7 @@ footer {
 
 /* Introduction Section */
 #introduction {
-    padding: 100px 50px; /* Adjust padding for the introduction section */
+    padding: 250px 50px; /* Adjust padding for the introduction section */
     display: flex;
     justify-content: center;
     max-width: 1200px; /* Limit the maximum width for larger screens */

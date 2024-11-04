@@ -3,38 +3,57 @@ const projects = [
     {
         title: 'Worldle',
         image: '/img/Wordle.png',
-        languages: 'HTML, CSS, JavaScript',
-        description: 'Description of project 1.',
-    },
+        languages: 'Flutter, Dart',
+        description: "Worldle is a fun and engaging word-guessing game inspired by the popular game 'Wordle'. Developed by a team of four, this unique 5-letter word guessing game challenges players to guess the correct word within a limited number of attempts. Players receive feedback after each guess, with colors indicating correct letters and their positions, as well as letters that are correct but in the wrong position. The game utilizes Dart for the programming logic and Firebase for real-time data management, ensuring a smooth gameplay experience. The project showcases the use of Flutter to create a visually appealing interface.",
+        buttons: [
+            { text: 'GitHub', link: 'https://github.com/wennnn12/worldle_UAS_softdev' },
+            { text: 'Figma', link: 'https://www.figma.com/design/slbtXL0OtazRiIFqU4Rfo7/PROTOTYPE?node-id=0-1&t=LWvM4AqOWZO0ajyE-1' }
+        ]
+    },    
     {
         title: 'Wizdrawal',
         image: '/img/Wizdrawal.jpg',
-        languages: 'Python, Django',
-        description: 'Description of project 2.',
-    },
+        languages: 'Flutter, Dart',
+        description: 'Wizdrawal is a dummy e-wallet application inspired by popular e-wallets like GoPay, OVO, Dana, and ShopeePay. Designed by a team of five, this project aims to simulate the functionality of an e-wallet, allowing users to store balances, transfer funds, withdraw cash, and view their transactional history. Developed over the course of one month, this application utilizes Flutter for its interface, Dart for the programming logic, and Firebase as its database, although it is not intended for real-world use.',
+        buttons: [
+            { text: 'GitHub', link: 'https://github.com/GeorgeWeilisJunior/UAS_E-MONEY' },
+        ]
+    },    
     {
         title: 'Retro Hardware Store',
         image: '/img/Retro.png',
-        languages: 'Java, Spring Boot',
-        description: 'Description of project 3.',
+        languages: 'HTML, CSS, JavaScript, ExpressJS',
+        description: 'The Retro Hardware Store is an e-commerce website inspired by popular online shopping platforms and the passion for collecting retro and old-school items, particularly technology and game consoles. Designed to facilitate the buying and selling of retro collectibles, this project aims to connect enthusiasts with a marketplace tailored to their interests. Developed by a three-person team over a period of two months, the website employs HTML, CSS, and JavaScript for its frontend, while utilizing MongoDB as the database to efficiently manage orders, item listings, and user accounts.',
+        buttons: [
+            { text: 'GitHub', link: 'https://github.com/GeorgeWeilisJunior/BackEnd-TugasFrontEnd' },
+        ]
     },
     {
         title: 'Orchid Forest Cikole',
         image: '/img/Orchid.jpg',
-        languages: 'C#, ASP.NET',
-        description: 'Description of project 4.',
+        languages: 'HTML, CSS, JavaScript',
+        description: 'The Orchid Forest Cikole project is a promotional website designed to showcase one of Indonesia’s beautiful destinations. Developed by a team of five, this website aims to provide visitors with essential information and insights about Orchid Forest Cikole, enhancing its visibility and appeal. The project was completed within a span of 2-3 weeks, utilizing HTML, CSS, and JavaScript to create an engaging and user-friendly interface that highlights the unique features and attractions of the forest.',
+        buttons: [
+            { text: 'GitHub', link: 'https://github.com/Horizon2509/FRONTEND' },
+        ]
     },
     {
         title: 'MRS Architect',
         image: '/img/Wizdrawal3.jpg',
-        languages: 'PHP, Laravel',
-        description: 'Description of project 5.',
+        languages: 'HTML, CSS, JavaScript, Laravel',
+        description: 'Website Portofolio MRS Architect',
+        buttons: [
+            { text: 'GitHub', link: 'https://github.com/GeorgeWeilisJunior/UAS-BackEnd-Arsitek' },
+        ]
     },
     {
         title: 'Urban vs Greenery Classification',
-        image: '/img/Wizdrawal2.jpg',
-        languages: 'React, Node.js',
-        description: 'Description of project 6.',
+        image: '/img/Classification.png',
+        languages: 'MATLAB',
+        description: "The Urban vs Greenery Classification project employs K-Nearest Neighbors (K-NN) algorithm to differentiate between urban and greenery images. For training, the model utilizes 30 images from urban environments and 30 from natural greenery settings. The classification is based on the predominant colors present in the images, where greenery images predominantly exhibit green hues, while urban images are characterized by shades of gray, brown, and black. Developed using MATLAB, this project showcases the effectiveness of color analysis in image classification.",
+        buttons: [
+            { text: 'Docs', link: 'https://drive.google.com/file/d/1zfsV9KkQgOteLNBvhjMaoJxCEMF8rARl/view?usp=sharing' },
+        ]
     },
 ];
 
@@ -86,7 +105,7 @@ const projectImages = {
     'Retro Hardware Store': ["/img/Retro.png", "/img/Retro2.png", "/img/Retro3.png"],
     'Orchid Forest Cikole': ["/img/Orchid.jpg", "/img/Orchid2.jpg", "/img/Orchid3.jpg"],
     'MRS Architect': ["image1.jpg", "image2.jpg", "image3.jpg"],
-    'Urban vs Greenery Classification': ["image1.jpg", "image2.jpg", "image3.jpg"]
+    'Urban vs Greenery Classification': ["/img/Classification.png", "/img/Classification2.png", "/img/Classification3.png"]
 };
 
 let currentImageIndex = 0;
@@ -99,16 +118,27 @@ function openModal(project) {
 
     const modal = document.getElementById('project-modal');
     const modalImage = document.querySelector('.modal-image');
-    
+
     if (currentProjectImages.length > 0) {
         modalImage.src = currentProjectImages[currentImageIndex]; // Set initial image
     }
-    
+
     // Populate other modal details
     document.getElementById('modal-title').textContent = project.title;
     document.getElementById('modal-languages').textContent = project.languages;
     document.getElementById('modal-description').textContent = project.description;
-    
+
+    // Create and populate buttons in the modal
+    const modalButtonsContainer = document.querySelector('.modal-buttons');
+    modalButtonsContainer.innerHTML = ''; // Clear previous buttons
+
+    project.buttons.forEach(button => {
+        const btn = document.createElement('button');
+        btn.textContent = button.text;
+        btn.onclick = () => window.open(button.link, '_blank'); // Open link in new tab
+        modalButtonsContainer.appendChild(btn);
+    });
+
     modal.style.display = "block"; // Show modal
 }
 
