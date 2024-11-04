@@ -1,0 +1,306 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+html, body {
+    width: 100%;
+}
+
+/* Header Layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.logo h1 {
+    font-size: 1.5em;
+    color: #fff;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Projects Section */
+.project-carousel {
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Prevent horizontal scrolling */
+    gap: 20px; /* Space between cards */
+    padding: 20px 0; /* Padding for carousel */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.project-card {
+    position: relative; /* Allow absolute positioning of child elements */
+    width: 300px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height to accommodate title and languages */
+    overflow: hidden; /* Hide overflow */
+    margin: 10px; /* Add some spacing between cards */
+    border: 1px solid #ccc; /* Optional: border for aesthetics */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+}
+
+.project-card img {
+    width: 100%; /* Make the image take full width */
+    height: 200px; /* Set a fixed height for images */
+    object-fit: contain; /* Scale the image to fit without cropping */
+}
+
+.project-card h3, #modal-title {
+    position: absolute; /* Position at the bottom */
+    bottom: 40px; /* Distance from the bottom */
+    left: 10px; /* Distance from the left */
+    right: 10px; /* Distance from the right */
+    color: #333; /* Text color */
+}
+
+.project-card p, #modal-languages {
+    font-size: 0.9em; /* Adjust font size */
+    position: absolute; /* Position at the bottom */
+    bottom: 20px; /* Distance from the bottom */
+    left: 10px; /* Distance from the left */
+    right: 10px; /* Distance from the right */
+    color: #333; /* Text color */
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Max width for large screens */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Introduction Section */
+#introduction {
+    padding: 100px 50px; /* Adjust padding for the introduction section */
+    display: flex;
+    justify-content: center;
+    max-width: 1200px; /* Limit the maximum width for larger screens */
+    margin: 0 auto; /* Center the section */
+}
+
+.intro-container {
+    display: flex; /* Use flexbox for side-by-side layout */
+    align-items: center; /* Center items vertically */
+    max-width: 100%; /* Sets maximum width for the introduction section */
+    width: 100%; /* Ensure full width within the parent */
+}
+
+.intro-text {
+    text-align: justify;
+    flex: 1; /* Allow text to take available space */
+    padding-right: 50px; /* Space between text and image */
+}
+
+/* Introduction Title and Text */
+#introduction h1 {
+    font-size: 2.5em; /* Adjust as needed */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+#introduction p {
+    font-size: 1em; /* Increase size for the introduction text */
+    line-height: 1.5; /* Adjust line height for better readability */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.icons img {
+    width: 30px; /* Default size for smaller screens */
+    height: auto;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+/* Adjust for larger devices (e.g., laptops and desktops) */
+@media (min-width: 1024px) {
+    #introduction h1 {
+        text-align: left;
+        font-size: 4em; /* Larger title size */
+    }
+
+    #introduction p {
+        font-size: 1.1em; /* Larger text size */
+    }
+
+    .icons img {
+        width: 50px; /* Adjust this size as needed for larger screens */
+    }
+}
+
+/* Adjusted for larger devices */
+.intro-photo {
+    margin-right: 20px; /* Space between photo and text */
+}
+
+.intro-photo img {
+    width: 400px; /* Size of the photo */
+    height: 400px; /* Same height as width for a circle */
+    border-radius: 50%; /* Makes the photo circular */
+    object-fit: cover; /* Ensures the image covers the circle area */
+    object-position: 0 25%;
+}
+
+/* Responsive Design for Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    .logo h1 {
+        font-size: 1.2em;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 0.9em;
+        padding: 6px 10px;
+    }
+
+    .intro-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .intro-text {
+        padding-right: 10px; /* Added margin for smaller screens */
+        font-size: 0.9em; /* Smaller font size */
+    }
+
+    #introduction {
+        padding: 30px 10px; /* Adjust padding for mobile view */
+    }
+
+    .intro-container {
+        flex-direction: column; /* Stack elements on smaller screens */
+        align-items: center; /* Center content */
+        text-align: center; /* Center text */
+    }
+
+    .intro-photo {
+        order: -1; /* Move photo above text */
+        margin-bottom: 10px; /* Add space between photo and text */
+    }
+
+    .intro-photo img {
+        width: 120px; /* Adjusted for smaller screens */
+        height: 120px; /* Keep it a square for the circle */
+    }
+}
+
+/* Responsive Design for Small Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 0.8em; /* Smaller logo text on small mobile */
+    }
+
+    nav {
+        gap: 8px;
+        padding: 10px 10px;
+    }
+
+    nav a {
+        font-size: 0.6em; /* Reduce font size for navigation links */
+        padding: 6px 4px;
+    }
+
+    section {
+        padding: 30px 15px; /* Further reduce padding for sections */
+    }
+
+    .skill-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+
+    .intro-photo img {
+        width: 100px; /* Smaller size for very small screens */
+        height: 100px; /* Keep it a square for the circle */
+    }
+}
