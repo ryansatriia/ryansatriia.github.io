@@ -143,6 +143,62 @@ section {
     cursor: pointer;
 }
 
+.card-container {
+    display: flex; /* Use flexbox to align items */
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+    position: relative; /* Position relative for absolute positioning of buttons */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.card {
+    transition: transform 0.5s ease; /* Animate transform changes */
+    position: absolute; /* Position absolute for sliding */
+    flex: 1; /* Allow card to take remaining space */
+    margin: 0 20px; /* Add margin to cards for spacing */
+    /* Add other card styles as needed */
+}
+
+.card.active {
+    transform: translateX(0); /* Show the active card */
+}
+
+.card.prev {
+    transform: translateX(-100%); /* Slide the previous card out to the left */
+}
+
+.card.next {
+    transform: translateX(100%); /* Slide the next card in from the right */
+}
+
+.nav-button {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    background-color: #fff; /* Background color for button */
+    border: none;
+    border-radius: 50%; /* Make it circular */
+    color: #333; /* Arrow color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icon */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    z-index: 10; /* Ensure buttons are on top */
+}
+
+#prev-button {
+    margin-right: 10px; /* Spacing between button and card */
+}
+
+#next-button {
+    margin-left: 10px; /* Spacing between button and card */
+}
+
+.nav-button:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
+
 /* Footer */
 footer {
     background-color: #333;

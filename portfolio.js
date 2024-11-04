@@ -62,6 +62,19 @@ function updateCarousel() {
         `;
         carousel.appendChild(card);
     }
+
+    // Update class for animation effect
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        card.classList.remove('active', 'prev', 'next');
+        if (index === 0) {
+            card.classList.add('active');
+        } else if (index === 1) {
+            card.classList.add('next');
+        } else {
+            card.classList.add('prev');
+        }
+    });
 }
 
 function openModal(project) {
