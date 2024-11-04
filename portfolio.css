@@ -122,11 +122,50 @@ section {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 10% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 600px; /* Max width for large screens */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Carousel Styles */
+.mdl-carousel {
+    display: flex; /* Use flexbox for layout */
+    overflow: hidden; /* Hide overflow for carousel */
+    justify-content: center; /* Center the images */
+    position: relative; /* Position for absolute children */
+    width: 100%; /* Full width */
+}
+
+.modal-image {
+    width: 100%; /* Full width for images */
+    height: auto; /* Auto height to maintain aspect ratio */
+    object-fit: cover; /* Cover to ensure uniformity */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: space-around; /* Space buttons evenly */
+    margin-top: 20px; /* Space above buttons */
+}
+
+.modal-buttons button {
+    padding: 10px 20px; /* Button padding */
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.modal-buttons button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
 .close {
@@ -301,7 +340,7 @@ footer {
 
     .intro-text {
         padding-right: 10px; /* Added margin for smaller screens */
-        font-size: 0.9em; /* Smaller font size */
+        font-size: 1em; /* Smaller font size */
     }
 
     #introduction {
@@ -320,8 +359,68 @@ footer {
     }
 
     .intro-photo img {
-        width: 120px; /* Adjusted for smaller screens */
-        height: 120px; /* Keep it a square for the circle */
+        width: 180px; /* Adjusted for smaller screens */
+        height: 180px; /* Keep it a square for the circle */
+    }
+
+    section {
+        padding: 40px 20px;
+        text-align: center;
+        width: 100%;
+    }
+    .project-carousel {
+        gap: 10px; /* Space between cards */
+    }
+    
+    .project-card {
+        padding: 10px;
+        width: 200px; /* Set a fixed width */
+        height: 300px; /* Set a fixed height to accommodate title and languages */
+        border: 1px solid #ccc; /* Optional: border for aesthetics */
+        border-radius: 8px; /* Optional: rounded corners */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+    }
+    
+    .project-card img {
+        width: 100%;
+    }
+    
+    .project-card h3, #modal-title {
+        font-size: 1.2em;
+        position: absolute; /* Position at the bottom */
+        bottom: 30px; /* Distance from the bottom */
+        left: 10px; /* Distance from the left */
+        right: 10px; /* Distance from the right */
+        color: #333; /* Text color */
+    }
+    
+    .project-card p, #modal-languages {
+        font-size: 0.8em; /* Adjust font size */
+        bottom: 10px; /* Distance from the bottom */
+    }
+
+    .nav-button {
+        width: 30px; /* Adjust size as needed */
+        height: 30px; /* Adjust size as needed */
+        background-color: #fff; /* Background color for button */
+        border: none;
+        border-radius: 50%; /* Make it circular */
+        color: #333; /* Arrow color */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the icon */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+        z-index: 10; /* Ensure buttons are on top */
+    }
+
+    #prev-button {
+        margin-right: 0px; /* Spacing between button and card */
+    }
+    
+    #next-button {
+        margin-left: 0px; /* Spacing between button and card */
     }
 }
 
@@ -341,8 +440,9 @@ footer {
         padding: 6px 4px;
     }
 
-    section {
-        padding: 30px 15px; /* Further reduce padding for sections */
+    .intro-text {
+        padding-right: 10px; /* Added margin for smaller screens */
+        font-size: 0.8em; /* Smaller font size */
     }
 
     .skill-card {
@@ -358,5 +458,69 @@ footer {
     .intro-photo img {
         width: 100px; /* Smaller size for very small screens */
         height: 100px; /* Keep it a square for the circle */
+    }
+
+    section {
+        padding: 40px 5px;
+        text-align: center;
+        width: 100%;
+    }
+    .project-carousel {
+        gap: 0px; /* Space between cards */
+    }
+    
+    .project-card {
+        position: relative; /* Allow absolute positioning of child elements */
+        padding: 5px;
+        margin: 3px;
+        width: 100px; /* Set a fixed width */
+        height: 200px; /* Set a fixed height to accommodate title and languages */
+        border: 1px solid #ccc; /* Optional: border for aesthetics */
+        border-radius: 8px; /* Optional: rounded corners */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+    }
+    
+    .project-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    
+    .project-card h3, #modal-title {
+        font-size: 0.5em;
+        position: absolute; /* Position at the bottom */
+        bottom: 18px; /* Distance from the bottom */
+        left: 10px; /* Distance from the left */
+        right: 10px; /* Distance from the right */
+        color: #333; /* Text color */
+    }
+    
+    .project-card p, #modal-languages {
+        font-size: 0.4em; /* Adjust font size */
+        bottom: 5px; /* Distance from the bottom */
+    }
+
+    .nav-button {
+        width: 20px; /* Adjust size as needed */
+        height: 20px; /* Adjust size as needed */
+        background-color: #fff; /* Background color for button */
+        border: none;
+        border-radius: 50%; /* Make it circular */
+        color: #333; /* Arrow color */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the icon */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+        z-index: 10; /* Ensure buttons are on top */
+    }
+
+    #prev-button {
+        margin-right: 0px; /* Spacing between button and card */
+    }
+    
+    #next-button {
+        margin-left: 0px; /* Spacing between button and card */
     }
 }

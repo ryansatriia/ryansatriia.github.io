@@ -40,8 +40,8 @@ const projects = [
 
 let currentIndex = 0;
 const cardsToShow = 3;
-let autoScrollInterval; // Variable to hold the interval ID
-let autoScrollTimeout; // Variable to hold the timeout ID
+let autoScrollInterval;
+let autoScrollTimeout;
 
 // Function to update the carousel with three projects
 function updateCarousel() {
@@ -79,17 +79,53 @@ function updateCarousel() {
     });
 }
 
+// Define the images for each project
+const projectImages = {
+    'Worldle': ["/img/Wordle.png", "/img/Wordle2.png", "/img/Wordle3.png"],
+    'Wizdrawal': ["/img/Wizdrawal.jpg", "/img/Wizdrawal2.jpg", "/img/Wizdrawal3.jpg"],
+    'Retro Hardware Store': ["/img/Retro.png", "/img/Retro2.png", "/img/Retro3.png"],
+    'Orchid Forest Cikole': ["/img/Orchid.jpg", "/img/Orchid2.jpg", "/img/Orchid3.jpg"],
+    'MRS Architect': ["image1.jpg", "image2.jpg", "image3.jpg"],
+    'Urban vs Greenery Classification': ["image1.jpg", "image2.jpg", "image3.jpg"]
+};
+
+let currentImageIndex = 0;
+let currentProjectImages = []; // Store the image array for the current project
+
+// Open modal and load project-specific images
 function openModal(project) {
+    currentProjectImages = projectImages[project.title] || []; // Load the specific images for the project
+    currentImageIndex = 0;
+
     const modal = document.getElementById('project-modal');
-    document.getElementById('modal-image').src = project.image;
-    document.getElementById('modal-title').innerText = project.title;
-    document.getElementById('modal-languages').innerText = project.languages;
-    document.getElementById('modal-description').innerText = project.description;
-    modal.style.display = 'block';
+    const modalImage = document.querySelector('.modal-image');
+    
+    if (currentProjectImages.length > 0) {
+        modalImage.src = currentProjectImages[currentImageIndex]; // Set initial image
+    }
+    
+    // Populate other modal details
+    document.getElementById('modal-title').textContent = project.title;
+    document.getElementById('modal-languages').textContent = project.languages;
+    document.getElementById('modal-description').textContent = project.description;
+    
+    modal.style.display = "block"; // Show modal
 }
 
+// Close modal
 function closeModal() {
-    document.getElementById('project-modal').style.display = 'none';
+    document.getElementById('project-modal').style.display = "none"; // Hide modal
+}
+
+// Next and previous image functions for cycling through project images
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % currentProjectImages.length;
+    document.querySelector('.modal-image').src = currentProjectImages[currentImageIndex];
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+    document.querySelector('.modal-image').src = currentProjectImages[currentImageIndex];
 }
 
 // Handle the auto-scroll of the project carousel

@@ -49,13 +49,15 @@
     <div class="card-container">
         <button id="prev-button" class="nav-button" onclick="prevProjects()">
             <i class="fas fa-chevron-left"></i>
-        </button> <!-- Left Arrow -->
+        </button>
+        
         <div class="project-carousel" id="carousel">
-            <!-- Cards will be dynamically generated -->
+            <!-- Project cards will be dynamically generated here -->
         </div>
+        
         <button id="next-button" class="nav-button" onclick="nextProjects()">
             <i class="fas fa-chevron-right"></i>
-        </button> <!-- Right Arrow -->
+        </button>
     </div>
 
     <!-- Modal for Project Details -->
@@ -63,10 +65,20 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="modal-details">
-                <img id="modal-image" src="" alt="Project Image">
+                <div id="modal-carousel" class="mdl-carousel">
+                    <img class="modal-image" src="" alt="Project Image">
+                </div>
                 <h3 id="modal-title"></h3>
                 <p id="modal-languages"></p>
                 <p id="modal-description"></p>
+                <div class="modal-buttons">
+                    <button id="github-button">GitHub</button>
+                    <button id="docs-button">Docs</button>
+                </div>
+            </div>
+            <div class="modal-navigation">
+                <button onclick="prevImage()">Previous Image</button>
+                <button onclick="nextImage()">Next Image</button>
             </div>
         </div>
     </div>
