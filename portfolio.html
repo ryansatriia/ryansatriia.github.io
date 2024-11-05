@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryan Satria's Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -44,25 +45,42 @@
 
 <!-- Projects Section -->
 <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-carousel" id="carousel">
-        <!-- Cards will be dynamically generated -->
+    <h1 style="font-size: 2em;">Projects</h1>
+    <div class="card-container">
+        <button id="prev-button" class="nav-button" onclick="prevProjects()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="project-carousel" id="carousel">
+            <!-- Project cards will be dynamically generated here -->
+        </div>
+        
+        <button id="next-button" class="nav-button" onclick="nextProjects()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
-    <button id="prev-button" class="nav-button" onclick="prevProjects()">&#10094;</button> <!-- Left Arrow -->
-    <button id="next-button" class="nav-button" onclick="nextProjects()">&#10095;</button> <!-- Right Arrow -->
 
-    <!-- Modal for Project Details -->
     <div id="project-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="modal-details">
-                <img id="modal-image" src="" alt="Project Image">
+                <div id="modal-carousel" class="mdl-carousel">
+                    <img class="modal-image" src="" alt="Project Image">
+                </div>
                 <h3 id="modal-title"></h3>
                 <p id="modal-languages"></p>
                 <p id="modal-description"></p>
+                <div class="modal-buttons">
+                    <!-- Buttons will be dynamically inserted here -->
+                </div>
+                
+            </div>
+            <div class="modal-navigation">
+                <button onclick="prevImage()">Previous Image</button>
+                <button onclick="nextImage()">Next Image</button>
             </div>
         </div>
-    </div>
+    </div>    
 </section>
 
 <!-- Skills Section -->
