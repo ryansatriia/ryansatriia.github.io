@@ -194,7 +194,6 @@ section {
     opacity: 0.8; /* Slightly change opacity on hover for feedback */
 }
 
-
 /* Modal navigation buttons */
 .modal-navigation {
     display: flex;
@@ -307,9 +306,6 @@ footer {
     border-radius: 20%;
     cursor: pointer;
 }
-
-/* Adjust for larger devices (e.g., laptops and desktops) */
-
 
 /* Adjusted for larger devices */
 .intro-photo {

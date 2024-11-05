@@ -134,7 +134,6 @@ function openModal(project) {
         "Figma": "img/FigmaLogo.png", // Local asset for Figma logo
         "Docs": "img/DocsLogo.png" // Local asset for Docs logo
     };
-
     // Create and populate buttons in the modal
     const modalButtonsContainer = document.querySelector('.modal-buttons');
     modalButtonsContainer.innerHTML = ''; // Clear previous buttons
