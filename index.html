@@ -43,6 +43,8 @@
     </div>
 </section>
 
+<!-- Education Section -->
+  
 <!-- Projects Section -->
 <section id="projects">
     <h1 style="font-size: 2em;">Projects</h1>
@@ -67,17 +69,20 @@
                 <div id="modal-carousel" class="mdl-carousel">
                     <img class="modal-image" src="" alt="Project Image">
                 </div>
+                <div class="modal-navigation">
+                    <button id="prev-button" class="nav-button" onclick="prevImage()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-button" class="nav-button" onclick="nextImage()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
                 <h3 id="modal-title"></h3>
                 <p id="modal-languages"></p>
                 <p id="modal-description"></p>
                 <div class="modal-buttons">
                     <!-- Buttons will be dynamically inserted here -->
                 </div>
-                
-            </div>
-            <div class="modal-navigation">
-                <button onclick="prevImage()">Previous Image</button>
-                <button onclick="nextImage()">Next Image</button>
             </div>
         </div>
     </div>    
