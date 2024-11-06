@@ -333,17 +333,57 @@ footer {
     height: auto; /* Same height as width for a circle */
 }
 
+/* General Styles for the Skills Section */
 #skills {
-    padding: 40px;
-    background-color: #f4f7fa;
+    background-color: #f4f4f9;
     text-align: center;
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+#skills h1 {
+    font-size: 2em;
     color: #333;
-    font-family: 'Arial', sans-serif;
+}
+
+/* Skills Container to Align Cards Horizontally */
+.skills-container {
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    gap: 3vw;
+    flex-wrap: wrap; /* To make it responsive */
+    margin-top: 30px;
+}
+
+/* Skill Categories */
+.skill-category {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1vw 2vw;
+    width: 30%; /* Each card will take 30% of the width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Skill Lists */
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category ul li {
+    font-size: 1.2em;
+    color: #555;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.skill-category ul li:last-child {
+    border-bottom: none;
 }
 
 @media (max-width: 1023px) {
@@ -410,6 +450,15 @@ h2 {
         font-size: 14px; /* Standardize font size */
         margin: 5px 0; /* Space around paragraphs */
         text-align: center; /* Center text */
+    }
+
+    .skill-category h2 {
+        font-size: 1.5em;
+    }
+    
+    .skill-category ul li {
+        font-size: 1em;
+        padding: 6px 0;
     }
 }
 
@@ -485,24 +534,33 @@ h2 {
     }
 
     /* Button styling */
-.modal-buttons {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0; /* Margin for spacing */
-}
+    .modal-buttons {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0; /* Margin for spacing */
+    }
 
-.modal-buttons button {
-    margin: 0 10px; /* Spacing between buttons */
-    width: 35px; /* Set a fixed width for buttons */
-    height: 35px; /* Set a fixed height for buttons */
-    cursor: pointer; /* Pointer on hover */
-    border: none; /* Remove borders */
-    border-radius: 50%; /* Keep buttons circular */
-    background-color: transparent; /* Make background transparent for images to show */
-    color: white; /* White text (optional, might not be visible if background is transparent) */
-    background-size: cover; /* Ensure background image covers the button */
-    background-position: center; /* Center the image */
-}
+    .modal-buttons button {
+        margin: 0 10px; /* Spacing between buttons */
+        width: 35px; /* Set a fixed width for buttons */
+        height: 35px; /* Set a fixed height for buttons */
+        cursor: pointer; /* Pointer on hover */
+        border: none; /* Remove borders */
+        border-radius: 50%; /* Keep buttons circular */
+        background-color: transparent; /* Make background transparent for images to show */
+        color: white; /* White text (optional, might not be visible if background is transparent) */
+        background-size: cover; /* Ensure background image covers the button */
+        background-position: center; /* Center the image */
+    }
+
+    .skill-category h2 {
+        font-size: 1.3em;
+    }
+
+    .skill-category ul li {
+        font-size: 0.8em;
+        padding: 7px 0;
+    }
 }
 
 /* Responsive Design for Small Mobile Devices (max-width: 480px) */
@@ -611,22 +669,36 @@ h2 {
     }
 
     /* Button styling */
-.modal-buttons {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0; /* Margin for spacing */
-}
+    .modal-buttons {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0; /* Margin for spacing */
+    }
 
-.modal-buttons button {
-    margin: 0 10px; /* Spacing between buttons */
-    width: 25px; /* Set a fixed width for buttons */
-    height: 25px; /* Set a fixed height for buttons */
-    cursor: pointer; /* Pointer on hover */
-    border: none; /* Remove borders */
-    border-radius: 50%; /* Keep buttons circular */
-    background-color: transparent; /* Make background transparent for images to show */
-    color: white; /* White text (optional, might not be visible if background is transparent) */
-    background-size: cover; /* Ensure background image covers the button */
-    background-position: center; /* Center the image */
-}
+    .modal-buttons button {
+        margin: 0 10px; /* Spacing between buttons */
+        width: 25px; /* Set a fixed width for buttons */
+        height: 25px; /* Set a fixed height for buttons */
+        cursor: pointer; /* Pointer on hover */
+        border: none; /* Remove borders */
+        border-radius: 50%; /* Keep buttons circular */
+        background-color: transparent; /* Make background transparent for images to show */
+        color: white; /* White text (optional, might not be visible if background is transparent) */
+        background-size: cover; /* Ensure background image covers the button */
+        background-position: center; /* Center the image */
+    }
+
+    .skills-container {
+        flex-direction: column;
+        width: 80vw;
+        align-items: center;
+    }
+
+    .skill-category {
+        width: 80%;
+    }
+
+    .skill-category ul li {
+        padding: 4px 0;
+    }
 }
