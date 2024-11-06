@@ -240,3 +240,25 @@ window.onclick = function(event) {
 }
 
 window.addEventListener('resize', updateCarousel);
+
+const sections = document.querySelectorAll('section');
+
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('slide-up');
+            observer.unobserve(entry.target);  // Stop observing after animation
+        }
+    });
+}, options);
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
