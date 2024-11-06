@@ -6,6 +6,7 @@
     <title>Ryan Satria's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -19,13 +20,12 @@
         <a href="#education">Educations</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <!-- Introduction Section -->
-<section id="introduction">
+<section id="introduction" style="background-color: #effffc;">
     <div class="intro-container">
         <div class="intro-text">
             <h1>Hello, my name is Ryan Satria</h1>
@@ -45,14 +45,14 @@
 </section>
 
 <!-- Education Section -->
-<section id="education">
-    <h1 style="font-size: 2em;">Educations</h1>
+<section id="education" style="background-color: #e8fffb;">
+    <h1 style="font-size: 3em;">Educations</h1>
     <img src="img/Educations.png" alt="Ryan Satria">
 </section>
 
 <!-- Projects Section -->
-<section id="projects">
-    <h1 style="font-size: 2em;">Projects</h1>
+<section id="projects" style="background-color: #effffc;">
+    <h1 style="font-size: 3em;">Projects</h1>
     <div class="card-container">
         <button id="prev-button" class="nav-button" onclick="prevProjects()">
             <i class="fas fa-chevron-left"></i>
@@ -94,8 +94,8 @@
 </section>
 
 <!-- Skills Section -->
-<section id="skills">
-    <h1>Skills</h1>
+<section id="skills" style="background-color: #e8fffb;">
+    <h1 style="font-size: 3em;">Skills</h1>
     
     <!-- Skill Categories Container -->
     <div class="skills-container">
@@ -149,10 +149,19 @@
 
 <!-- Footer Section -->
 <footer id="contact">
-    <h2>Contact</h2>
-    <p>Email: ryan.satria100@gmail.com</p>
-    <p>Phone: 0851-5614-4151</p>
+    <h2>Contact Me</h2>
+    <div class="icons">
+        <div class="contact-item">
+            <img src="img/mail-logo.png" alt="Email Icon">
+            <a href="mailto:ryan.satria100@gmail.com" target="_blank" class="contact-link">ryan.satria100@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <img src="img/whatsapp-logo.png" alt="WhatsApp Icon">
+            <a href="https://wa.me/6285156144151" target="_blank" class="contact-link">0851-5614-4151</a>
+        </div>
+    </div>
 </footer>
+
 
 <script src="script.js"></script>
 </body>
