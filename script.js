@@ -67,7 +67,13 @@ function updateCarousel() {
     const carousel = document.getElementById('carousel');
     carousel.innerHTML = ''; // Clear previous content
 
-    for (let i = 0; i < cardsToShow; i++) {
+    // Adjust cardsToShow based on screen width
+    const currentCardsToShow = 
+        window.innerWidth < 768 ? 1 :
+        window.innerWidth < 1024 ? 2 : 
+        cardsToShow;
+
+    for (let i = 0; i < currentCardsToShow; i++) {
         const projectIndex = (currentIndex + i) % projects.length;
         const project = projects[projectIndex];
 
@@ -77,9 +83,13 @@ function updateCarousel() {
         card.onclick = () => openModal(project);
         
         card.innerHTML = `
-            <img src="${project.image}" alt="${project.title}">
-            <h3>${project.title}</h3>
-            <p>${project.languages}</p>
+            <div class="image-container">
+                <img src="${project.image}" alt="${project.title}">
+            </div>
+            <div class="card-content">
+                <h3>${project.title}</h3>
+                <p>${project.languages}</p>
+            </div>
         `;
         carousel.appendChild(card);
     }
@@ -229,8 +239,4 @@ window.onclick = function(event) {
     }
 }
 
-// Toggle skill details
-function toggleSkill(skillId) {
-    const skill = document.getElementById(skillId);
-    skill.style.display = skill.style.display === 'block' ? 'none' : 'block';
-}
+window.addEventListener('resize', updateCarousel);
