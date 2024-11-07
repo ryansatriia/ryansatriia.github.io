@@ -53,9 +53,9 @@ nav a:hover {
 }
 
 /* Sections */
-section {
+section:not(#contact) {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,6 +64,13 @@ section {
     opacity: 0;  /* Initially set opacity to 0 so sections are hidden */
     transform: translateY(50px);  /* Position the section slightly below its final position */
     transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+#contact {
+    color: #fff;
+    padding: 20px;
+    height: auto;
+    background-color: #565A5B;
 }
 
 /* Projects Section */
@@ -269,15 +276,6 @@ section {
     background-color: #f0f0f0; /* Change background on hover */
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-}
-
 /* Introduction Section */
 #introduction {
     padding: 0% 3%;
@@ -316,6 +314,12 @@ footer {
     margin-bottom: 20px; /* Space below the title */
 }
 
+.icons {
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+}
+
 .icons img {
     width: 60px; /* Default size for smaller screens */
     height: auto;
@@ -333,15 +337,9 @@ footer {
 
 #education img {
     padding-top: 10px;
-    width: 100%; /* Size of the photo */
-    max-width: 700px;
-    height: auto; /* Same height as width for a circle */
-}
-
-/* General Styles for the Skills Section */
-#skills {
-    background-color: #f4f4f9;
-    text-align: center;
+    width: auto;
+    max-width: 90%; /* Size of the photo */
+    height: 50vh; /* Same height as width for a circle */
 }
 
 /* Skills Container to Align Cards Horizontally */
@@ -384,11 +382,6 @@ footer {
 
 .skill-category ul li:last-child {
     border-bottom: none;
-}
-
-#contact {
-    text-align: center;
-    background-color: #565A5B;
 }
 
 #contact h2 {
@@ -648,9 +641,8 @@ footer {
 
     section {
         padding: 40px 5px;
-        text-align: center;
-        width: 100%;
     }
+
     .project-carousel {
         gap: 0px; /* Space between cards */
     }
@@ -751,6 +743,13 @@ footer {
 
     .contact-link {
         font-size: 15px;
+    }
+
+    #contact {
+        color: #fff;
+        padding: 20px;
+        height: auto;
+        background-color: #565A5B;
     }
 }
 
