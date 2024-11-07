@@ -130,7 +130,7 @@ section:not(#contact) {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 1000; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -141,16 +141,21 @@ section:not(#contact) {
 
 /* Modal content */
 .modal-content {
+    padding: 1%;
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 800px; /* Prevent it from being too wide */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow */
+    margin: 0 auto; /* Center horizontally in the screen */
+    position: absolute;
+    top: 50%; /* Place at the middle of the screen */
+    left: 50%; /* Place at the middle of the screen */
+    transform: translate(-50%, -50%); /* Offset by 50% of its width/height to truly center */
 }
-
 /* Close button */
 .close {
     color: #aaa;
@@ -164,6 +169,12 @@ section:not(#contact) {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.mdl-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Image styling */
@@ -314,12 +325,6 @@ section:not(#contact) {
     margin-bottom: 20px; /* Space below the title */
 }
 
-.icons {
-    text-align: left;
-    justify-content: left;
-    align-items: left;
-}
-
 .icons img {
     width: 60px; /* Default size for smaller screens */
     height: auto;
@@ -327,10 +332,14 @@ section:not(#contact) {
     cursor: pointer;
 }
 
+.icons img:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
 .intro-photo img {
     width: 400px; /* Size of the photo */
     height: 400px; /* Same height as width for a circle */
-    border-radius: 50%; /* Makes the photo circular */
+    border-radius: 10%; /* Makes the photo circular */
     object-fit: cover; /* Ensures the image covers the circle area */
     object-position: 0 25%;
 }
@@ -388,6 +397,7 @@ section:not(#contact) {
     font-size: 1.5em;
     color: #ffffff;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .contact-item {
