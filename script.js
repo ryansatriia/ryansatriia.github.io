@@ -39,7 +39,7 @@ const projects = [
     },
     {
         title: 'MRS Architect',
-        image: 'img/ClassificationAll.png',
+        image: 'img/MRS Architect.png',
         languages: 'HTML, CSS, JavaScript, Laravel',
         description: 'Website Portofolio MRS Architect',
         buttons: [
@@ -114,7 +114,7 @@ const projectImages = {
     'Wizdrawal': ["img/Wizdrawal.jpg", "img/Wizdrawal2.jpg", "img/Wizdrawal3.jpg"],
     'Retro Hardware Store': ["img/Retro.png", "img/Retro2.png", "img/Retro3.png", "img/Retro4.png"],
     'Orchid Forest Cikole': ["img/Orchid.jpg", "img/Orchid4.jpg", "img/Orchid3.jpg", "img/Orchid2.jpg"],
-    'MRS Architect': ["image1.jpg", "image2.jpg", "image3.jpg"],
+    'MRS Architect': ["img/MRS1.png", "img/MRS2.png", "img/MRS3.png"],
     'Urban vs Greenery Classification': ["img/Classification.png", "img/Classification2.png", "img/Classification3.png"]
 };
 
