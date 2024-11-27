@@ -39,7 +39,7 @@ const projects = [
     },
     {
         title: 'MRS Architect',
-        image: 'img/MRS Architect.png',
+        image: 'img/MRS.png',
         languages: 'HTML, CSS, JavaScript, Laravel',
         description: 'Website Portofolio MRS Architect',
         buttons: [
